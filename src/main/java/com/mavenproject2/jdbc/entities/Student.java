@@ -1,4 +1,4 @@
-package com.mavenproject2.jdbc;
+package com.mavenproject2.jdbc.entities;
 
 public class Student {
 	private int id;
