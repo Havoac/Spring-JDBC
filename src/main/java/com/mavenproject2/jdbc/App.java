@@ -40,5 +40,9 @@ public class App
 //        studentDao.delete(5);
 //        int result = studentDao.delete(4);
 //        System.out.println("Data deleted " + result);
+    
+        /* select single data (Row mapper) */
+        Student student =  studentDao.getStudent(1);
+        System.out.println(student); 
     }
 }
