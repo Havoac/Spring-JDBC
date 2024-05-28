@@ -3,7 +3,7 @@ package com.mavenproject2.jdbc;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.mavenproject2.jdbc.dao.StudentDao;
 import com.mavenproject2.jdbc.entities.Student;
@@ -16,8 +16,10 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("com/mavenproject2/jdbc/config.xml");
+//        ApplicationContext context = new ClassPathXmlApplicationContext("com/mavenproject2/jdbc/config.xml");
         
+    	/* Without XML */
+    	ApplicationContext context = new AnnotationConfigApplicationContext(JdbcConfig.class);
         StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
 
         /* Insert the data */
@@ -42,15 +44,17 @@ public class App
 //        studentDao.delete(5);
 //        int result = studentDao.delete(4);
 //        System.out.println("Data deleted " + result);
-    
+    	
         /* select single data (Row mapper) */
-//        Student student =  studentDao.getStudent(1);
-//        System.out.println(student);
+        Student student =  studentDao.getStudent(1);
+        System.out.println(student);
         
         List<Student> students = studentDao.getAllStudents();
         
         for(Student s : students){
         	System.out.println(s);
         }
+        
+        
     }
 }
