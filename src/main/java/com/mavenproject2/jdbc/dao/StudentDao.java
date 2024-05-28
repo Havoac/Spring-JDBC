@@ -1,5 +1,7 @@
 package com.mavenproject2.jdbc.dao;
 
+import java.util.List;
+
 import com.mavenproject2.jdbc.entities.Student;
 
 public interface StudentDao {
@@ -7,4 +9,5 @@ public interface StudentDao {
 	public int change(Student student);
 	public int delete(int studentId);
 	public Student getStudent(int studentId);
+	public List<Student> getAllStudents();
 }
